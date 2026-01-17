@@ -1,6 +1,6 @@
 import { ContactForm } from "@/components/contact/contact-form";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://senorita.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 
 export const metadata = {
   title: "اتصل بنا | سنيوريتا - معرض السيدات",

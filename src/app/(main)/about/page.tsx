@@ -7,7 +7,7 @@ import { Stats } from "@/components/about/stats";
 import { Features } from "@/components/about/features";
 import { FeaturesFallback, StatsFallback } from "@/components/about/fallbacks";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://senorita.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 
 export const metadata: Metadata = {
   title: "من نحن",
@@ -46,7 +46,7 @@ export default function AboutPage() {
         data={getWebPageSchema(
           "من نحن",
           metadata.description!,
-          `${SITE_URL}/about`
+          `${SITE_URL}/about`,
         )}
       />
 
