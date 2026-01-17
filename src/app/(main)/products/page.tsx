@@ -34,7 +34,7 @@ export async function SuspendedPage() {
         data={getWebPageSchema(
           "المنتجات",
           metadata.description!,
-          `${SITE_URL}/products`
+          `${SITE_URL}/products`,
         )}
       />
 

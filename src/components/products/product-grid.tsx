@@ -22,7 +22,7 @@ export function ProductGrid({ category }: ProductGridProps) {
 
   // Build Query Filters
   const [options, setOptions] = useState<z.infer<typeof ProductsFiltersSchema>>(
-    { filters: {} }
+    { filters: { available: true } },
   );
 
   const paramsEffectEvent = useEffectEvent(
@@ -93,7 +93,7 @@ export function ProductGrid({ category }: ProductGridProps) {
       }
 
       handleFilter();
-    }
+    },
   );
 
   useEffect(() => {

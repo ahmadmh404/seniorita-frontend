@@ -26,7 +26,7 @@ export const ContactSchema = z.object({
     .optional()
     .refine(
       (val) => !val || /^\+?[0-9]{7,15}$/.test(val),
-      "رقم الهاتف غير صالح"
+      "رقم الهاتف غير صالح",
     ),
   subject: z.string().min(5, "الموضوع يجب أن يكون على الأقل 5 أحرف"),
   message: z
@@ -55,6 +55,7 @@ export const ProductsFiltersInputSchema = z.object({
 export const ProductsFiltersSchema = z.object({
   filters: z.object({
     category: z.object({ slug: z.string() }).optional(),
+    available: z.boolean().optional(),
     $or: z
       .array(
         z.union([
@@ -67,7 +68,7 @@ export const ProductsFiltersSchema = z.object({
               $options: z.literal("i"),
             }),
           }),
-        ])
+        ]),
       )
       .optional(),
     colors: z
@@ -124,7 +125,7 @@ export const ProductSchema = z.object({
       (val) => {
         return val != null;
       },
-      { error: "يحب تحديد قسم للمنتج", path: ["categoryId"] }
+      { error: "يحب تحديد قسم للمنتج", path: ["categoryId"] },
     ),
 });
 
