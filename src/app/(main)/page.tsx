@@ -43,7 +43,7 @@ export function SuspendedPage() {
         data={getWebPageSchema(
           "سنيوريتا - معرض السيدات",
           metadata.description!,
-          SITE_URL
+          SITE_URL,
         )}
       />
 

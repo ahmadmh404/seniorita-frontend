@@ -17,7 +17,7 @@ import {
 } from "@/lib/formatters";
 import { PageFallback } from "@/components/shared/page-fallback";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://senorita.com";
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 
 export async function generateMetadata({
   params,
@@ -100,7 +100,7 @@ export async function SuspendedPage({
         data={getWebPageSchema(
           `${category.name} | سنيوريتا`,
           productDescriptionRenderer(category.description),
-          `${SITE_URL}/categories/${slug}`
+          `${SITE_URL}/categories/${slug}`,
         )}
       />
 
