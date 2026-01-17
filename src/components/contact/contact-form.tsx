@@ -18,7 +18,7 @@ import {
 } from "@/components/ui/input-group";
 import { Field, FieldError, FieldGroup, FieldLabel } from "../ui/field";
 import { Input } from "../ui/input";
-import { emailJs } from "@/lib/email";
+// import { emailJs } from "@/lib/email";
 import { useTransition } from "react";
 
 export function ContactForm() {
@@ -37,7 +37,8 @@ export function ContactForm() {
 
   async function onSubmit(data: z.infer<typeof ContactSchema>) {
     startTransition(async () => {
-      const response = await emailJs.send(data);
+      console.log("daa: ", data);
+      // const response = await emailJs.send(data);
     });
   }
 

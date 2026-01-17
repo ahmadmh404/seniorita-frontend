@@ -24,7 +24,6 @@ import {
 import { useTransition } from "react";
 import { deleteProduct, toggleProductAvailability } from "@/lib/api";
 import { toast } from "sonner";
-import { ProductDialog } from "./product-dialog";
 import { DataPage, Offer } from "@/lib/types";
 import { useGetOffers } from "@/lib/hooks/use-offers";
 import { OfferDialog } from "./offer-dialog";

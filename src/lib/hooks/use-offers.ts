@@ -11,8 +11,10 @@ export function useGetOffers() {
     queryFn: ({ pageParam }) => getOffers(pageParam),
     initialPageParam: undefined as number | undefined,
     getNextPageParam: (prevPage) => {
-      const pageSize = prevPage.pagination?.pageSize;
-      const pageNumber = prevPage.pagination?.page;
+      const pageSize = prevPage.pagination?.limit;
+      const pageNumber = prevPage.pagination
+        ? Math.ceil(prevPage.pagination?.total / prevPage.pagination.limit)
+        : 1;
 
       if (!pageSize || !pageNumber) {
         return;

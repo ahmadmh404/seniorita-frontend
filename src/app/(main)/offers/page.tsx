@@ -1,6 +1,5 @@
 import { OffersFallback } from "@/components/offers/fallback";
 import { OffersGrid } from "@/components/offers/offer-grid";
-import { getOffers } from "@/lib/api/offers";
 import { Metadata } from "next";
 import { Suspense } from "react";
 
@@ -13,17 +12,15 @@ export const metadata: Metadata = {
   },
 };
 
-export default function OffersPage(props: PageProps<"/offers">) {
+export default function OffersPage() {
   return (
     <Suspense>
-      <SuspendedPage {...props} />
+      <SuspendedPage />
     </Suspense>
   );
 }
 
-async function SuspendedPage(props: PageProps<"/offers">) {
-  // const { data } = await getOffers();
-
+async function SuspendedPage() {
   return (
     <div className="container mx-auto px-4 py-12">
       {/* Page Header */}

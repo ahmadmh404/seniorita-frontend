@@ -57,6 +57,7 @@ export function OfferForm({ offer }: OfferFormProps) {
       return { error: "يرجى إضافة صورة واحدة على الأقل للمنتج" };
     }
 
+    console.log("unsafe: ", unsafe);
     startTransition(async () => {
       // const response = await (offer
       //   ? updateProduct(offer.documentId, unsafe, offerImage)

@@ -1,10 +1,5 @@
 import * as z from "zod";
-import {
-  DB_PRODUCT_SORT_OPTIONS,
-  PRODUCTS_SORT_OPTIONS,
-  PRODUCTS_SORTING_OPTION,
-} from "./constant";
-import { slugify } from "./utils";
+import { DB_PRODUCT_SORT_OPTIONS, PRODUCTS_SORT_OPTIONS } from "./constant";
 
 /**
  * Data Pagination Schema

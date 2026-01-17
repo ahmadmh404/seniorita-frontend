@@ -8,7 +8,6 @@ import { Category, DataPage, Pagination, Product } from "../types";
 import { client } from "./client";
 import {
   getCategoriesCountTag,
-  getCategoriesTag,
   getCategoryTag,
   getPaginatedFeature,
 } from "../data-cache";

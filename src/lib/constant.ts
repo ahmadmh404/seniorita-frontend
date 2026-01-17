@@ -7,7 +7,7 @@ import {
   Truck,
   Twitter,
 } from "lucide-react";
-import { AboutState } from "./types";
+import { AboutFeature, AboutState } from "./types";
 
 /**
  *

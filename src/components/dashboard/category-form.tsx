@@ -16,6 +16,7 @@ import Image from "next/image";
 import { toast } from "sonner";
 import { createCategory, updateCategory } from "@/lib/api";
 import { slugify } from "@/lib/utils";
+import { productDescriptionRenderer } from "@/lib/formatters";
 
 interface CategoryFormProps {
   category?: Category | null;
@@ -30,7 +31,7 @@ export function CategoryForm({ category }: CategoryFormProps) {
     defaultValues: category
       ? {
           name: category.name,
-          description: category.description,
+          description: productDescriptionRenderer(category.description),
           slug: category.slug,
         }
       : {

@@ -1,4 +1,3 @@
-import { Offer, Product } from "@/lib/types";
 import { ReactNode } from "react";
 import {
   Dialog,
@@ -7,9 +6,9 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "../ui/dialog";
-import { ProductForm } from "./product-form";
 import { ScrollArea } from "../ui/scroll-area";
 import { OfferForm } from "./offer-form";
+import { Offer } from "@/lib/types";
 
 interface OfferDialogProps {
   children: ReactNode;

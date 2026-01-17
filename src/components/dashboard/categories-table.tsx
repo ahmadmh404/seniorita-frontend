@@ -48,7 +48,7 @@ export function CategoriesTable({ search }: CategoriesTablePros) {
 
   return (
     <div className="bg-background rounded-xl border border-border overflow-hidden">
-      <Table aria-disabled={isPending}>
+      <Table aria-disabled={isPending || isLoading}>
         <TableHeader>
           <TableRow>
             <TableHead className="text-right font-semibold">القسم</TableHead>

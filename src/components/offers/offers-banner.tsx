@@ -1,15 +1,16 @@
 "use client";
 
-import { useState } from "react";
+import { use, useState } from "react";
 import Link from "next/link";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import type { Offer } from "@/lib/types";
+import { DataPage, Offer } from "@/lib/types";
 
-export function OfferBanner() {
-  const [offer, setOffer] = useState<Offer | null>(null);
+export function OfferBanner(offersPromise: Promise<{ data: DataPage<Offer> }>) {
+  const { data: offers } = use(offersPromise).data;
   const [dismissed, setDismissed] = useState(false);
 
+  const offer = offers.length > 0 ? offers.at(0) : null;
   if (!offer || dismissed) return null;
 
   return (

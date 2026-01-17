@@ -1,6 +1,5 @@
 import { Suspense } from "react";
 import { PageFallback } from "@/components/shared/page-fallback";
-import { getProducts } from "@/lib/api";
 import { DashboardOffers } from "@/components/dashboard/dashboard-offers";
 import { getOffers } from "@/lib/api/offers";
 

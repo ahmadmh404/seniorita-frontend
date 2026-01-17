@@ -1,17 +1,16 @@
 "use client";
 
-import { DataPage, PaginationParma } from "@/lib/types";
+import { DataPage } from "@/lib/types";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { Fragment, type ComponentType } from "react";
 import {
   Empty,
-  EmptyContent,
   EmptyDescription,
   EmptyHeader,
   EmptyMedia,
   EmptyTitle,
 } from "../ui/empty";
-import { BlocksIcon, Link, Link2, Loader2 } from "lucide-react";
+import { BlocksIcon, Loader2 } from "lucide-react";
 import { Button } from "../ui/button";
 import { DataTablePagination } from "../shared/data-pagination";
 import { useSearchParams } from "next/navigation";
@@ -87,7 +86,7 @@ export function InfiniteQueryWrapper<T, N extends string>({
   if (status === "error") {
     return (
       <div className="flex flex-col items-center my-10">
-        <p className="text-lg text-destructive">
+        <p className="text-muted-foreground">
           فشل تحميل البيانات, يرجى المحاولة مرة أخرى
         </p>
         <Button onClick={() => refetch()} variant={"link"}>

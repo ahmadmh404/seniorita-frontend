@@ -1,6 +1,5 @@
 "use client";
 
-import { DataPage, Product } from "@/lib/types";
 import { useState } from "react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";

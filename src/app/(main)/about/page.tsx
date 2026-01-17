@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { Award, Heart, Shield, Truck } from "lucide-react";
 import { StructuredData } from "@/components/seo/structured-data";
 import { getWebPageSchema, getLocalBusinessSchema } from "@/lib/seo-config";
 import { Suspense } from "react";

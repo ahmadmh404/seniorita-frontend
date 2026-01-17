@@ -5,7 +5,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import Image from "next/image";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
-import { useRouter } from "next/navigation";
 import { Controller, useForm } from "react-hook-form";
 import z from "zod";
 import { Form } from "../ui/form";
@@ -17,7 +16,6 @@ import { login } from "@/lib/api";
 import { toast } from "sonner";
 
 export function LoginForm() {
-  const router = useRouter();
   const [isPending, startTransition] = useTransition();
 
   const searchParams = useSearchParams();

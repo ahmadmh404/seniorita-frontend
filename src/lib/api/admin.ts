@@ -14,7 +14,7 @@ import { getCategory, getCategoryByName } from "./categories";
 import { CategorySchema, OfferSchema, ProductSchema } from "../schema";
 import z from "zod";
 import { verifyAccess } from "./auth";
-import { getOffer, getOfferByTitle, getOffers } from "./offers";
+import { getOffer, getOfferByTitle } from "./offers";
 import { redirect } from "next/navigation";
 import { deleteMedia, uploadMedia } from "./media";
 

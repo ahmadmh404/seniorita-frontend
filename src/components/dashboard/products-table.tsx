@@ -26,17 +26,12 @@ import { deleteProduct, toggleProductAvailability } from "@/lib/api";
 import { toast } from "sonner";
 import { ProductDialog } from "./product-dialog";
 import { useGetProducts } from "@/lib/hooks/use-products";
-import { DataPage, Product } from "@/lib/types";
 
 interface ProductsTableProps {
   search: string;
-  // products: DataPage<Product>;
 }
 
-export function ProductsTable({
-  search,
-}: // products: initialDaa,
-ProductsTableProps) {
+export function ProductsTable({ search }: ProductsTableProps) {
   const [isPending, startTransition] = useTransition();
 
   const { data } = useGetProducts();
