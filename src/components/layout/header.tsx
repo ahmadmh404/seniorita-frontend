@@ -64,7 +64,7 @@ export async function Header() {
               alt="سنيوريتا"
               width={120}
               height={50}
-              className="h-20 w-auto"
+              className="h-16 w-auto"
             />
           </Link>
 
