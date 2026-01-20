@@ -69,7 +69,7 @@ export async function SuspendedPage({ params }: PageProps<"/products/[slug]">) {
   const { slug } = await params;
   const { product } = await getProduct(slug);
 
-  if (!product) {
+  if (product == null) {
     notFound();
   }
 
