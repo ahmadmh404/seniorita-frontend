@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { Star, ChevronRight } from "lucide-react";
-import { getProduct } from "@/lib/api";
+import { getProduct, getProducts } from "@/lib/api";
 import { ProductGallery } from "@/components/products/product-gallery";
 import { SimilarProducts } from "@/components/products/similar-products";
 
@@ -13,6 +13,18 @@ import { PageFallback } from "@/components/shared/page-fallback";
 import { SimilarProductsFallback } from "@/components/products/product-fallback";
 
 const SITE_URL = process.env.SITE_URL!;
+
+export async function generateStaticParams() {
+  try {
+    const { data: products } = await getProducts({});
+    return products.map((category) => ({
+      slug: category.slug,
+    }));
+  } catch (error) {
+    console.error("Failed to generate static params for products:", error);
+    return [];
+  }
+}
 
 export async function generateMetadata({
   params,

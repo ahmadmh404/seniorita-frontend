@@ -4,7 +4,7 @@ import { Suspense } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
-import { getCategory } from "@/lib/api";
+import { getCategories, getCategory } from "@/lib/api";
 import { ProductFilters } from "@/components/products/product-filters";
 import { ProductGrid } from "@/components/products/product-grid";
 import { ProductSort } from "@/components/products/product-sort";
@@ -15,6 +15,18 @@ import { productDescriptionRenderer } from "@/lib/formatters";
 import { PageFallback } from "@/components/shared/page-fallback";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
+
+export async function generateStaticParams() {
+  try {
+    const { data: categories } = await getCategories();
+    return categories.map((category) => ({
+      slug: category.slug,
+    }));
+  } catch (error) {
+    console.error("Failed to generate static params for categories:", error);
+    return [];
+  }
+}
 
 export async function generateMetadata({
   params,
