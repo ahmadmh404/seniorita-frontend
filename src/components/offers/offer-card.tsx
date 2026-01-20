@@ -9,7 +9,6 @@ import {
 import { Offer } from "@/lib/types";
 import { Badge } from "../ui/badge";
 import { Calendar } from "lucide-react";
-import {} from "@/lib/formatters";
 
 interface OfferCardProps {
   offer: Offer;

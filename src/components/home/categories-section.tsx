@@ -1,8 +1,5 @@
 import { getCategories } from "@/lib/api";
-import {
-  ,
-  productDescriptionRenderer,
-} from "@/lib/formatters";
+import { productDescriptionRenderer } from "@/lib/formatters";
 import Link from "next/link";
 import Image from "next/image";
 import {
@@ -49,7 +46,7 @@ export async function CategoriesSection() {
               `}
             >
               <Image
-                src={(category.image.url)}
+                src={category.image.url}
                 alt={category.name}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"

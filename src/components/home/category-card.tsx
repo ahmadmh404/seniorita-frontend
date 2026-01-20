@@ -1,7 +1,4 @@
-import {
-  ,
-  productDescriptionRenderer,
-} from "@/lib/formatters";
+import { productDescriptionRenderer } from "@/lib/formatters";
 import { Category } from "@/lib/types";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,7 +15,7 @@ export function CategoryCArd({ category }: CategoryCardProps) {
       className="group relative overflow-hidden rounded-2xl aspect-4/3"
     >
       <Image
-        src={(category.image.url)}
+        src={category.image.url}
         alt={category.name}
         fill
         className="object-cover transition-transform duration-500 group-hover:scale-110"

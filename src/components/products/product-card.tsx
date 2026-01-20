@@ -3,7 +3,6 @@ import Link from "next/link";
 import { Star } from "lucide-react";
 import type { Product } from "@/lib/types";
 import { Button } from "@/components/ui/button";
-import {} from "@/lib/formatters";
 
 interface ProductCardProps {
   product: Product;

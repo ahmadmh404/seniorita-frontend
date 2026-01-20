@@ -3,7 +3,6 @@ import { DashboardStatsFallback } from "@/components/dashboard/fallbacks";
 import { PageFallback } from "@/components/shared/page-fallback";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getProducts } from "@/lib/api";
-import {} from "@/lib/formatters";
 import Image from "next/image";
 import { Suspense } from "react";
 

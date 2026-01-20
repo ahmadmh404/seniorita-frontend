@@ -10,10 +10,9 @@ import { StructuredData } from "@/components/seo/structured-data";
 import { getProductSchema, getBreadcrumbSchema } from "@/lib/seo-config";
 import { Suspense } from "react";
 import { PageFallback } from "@/components/shared/page-fallback";
-import {} from "@/lib/formatters";
 import { SimilarProductsFallback } from "@/components/products/product-fallback";
 
-const SITE_URL = process.env.SITE_URL || "https://senorita.com";
+const SITE_URL = process.env.SITE_URL!;
 
 export async function generateMetadata({
   params,
@@ -131,7 +130,7 @@ export async function SuspendedPage({ params }: PageProps<"/products/[slug]">) {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
         {/* Product Gallery */}
         <ProductGallery
-          images={product.images.map((image) => formatFullMediaURL(image.url))}
+          images={product.images.map((image) => image.url)}
           productName={product.name}
         />
 

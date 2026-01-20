@@ -23,7 +23,6 @@ import {
 } from "../ui/alert-dialog";
 
 import { Pencil, Trash2 } from "lucide-react";
-import {} from "@/lib/formatters";
 import { CategoryDialog } from "./category-dialog";
 import { useTransition } from "react";
 import { deleteCategory } from "@/lib/api";

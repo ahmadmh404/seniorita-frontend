@@ -11,10 +11,7 @@ import { ProductSort } from "@/components/products/product-sort";
 import { Skeleton } from "@/components/ui/skeleton";
 import { StructuredData } from "@/components/seo/structured-data";
 import { getWebPageSchema, getBreadcrumbSchema } from "@/lib/seo-config";
-import {
-  ,
-  productDescriptionRenderer,
-} from "@/lib/formatters";
+import { productDescriptionRenderer } from "@/lib/formatters";
 import { PageFallback } from "@/components/shared/page-fallback";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
@@ -42,7 +39,7 @@ export async function generateMetadata({
       images: category.image
         ? [
             {
-              url: (category.image.url),
+              url: category.image.url,
               width: 1200,
               height: 630,
               alt: category.name,
@@ -108,7 +105,7 @@ export async function SuspendedPage({
       {/* Category Hero */}
       <div className="relative h-64 md:h-80 overflow-hidden">
         <Image
-          src={(category.image.url)}
+          src={category.image.url}
           alt={category.name}
           fill
           className="object-contain"
