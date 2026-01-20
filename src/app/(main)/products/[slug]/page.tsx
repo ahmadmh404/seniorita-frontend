@@ -10,7 +10,7 @@ import { StructuredData } from "@/components/seo/structured-data";
 import { getProductSchema, getBreadcrumbSchema } from "@/lib/seo-config";
 import { Suspense } from "react";
 import { PageFallback } from "@/components/shared/page-fallback";
-import { formatFullMediaURL } from "@/lib/formatters";
+import {} from "@/lib/formatters";
 import { SimilarProductsFallback } from "@/components/products/product-fallback";
 
 const SITE_URL = process.env.SITE_URL || "https://senorita.com";
@@ -39,7 +39,7 @@ export async function generateMetadata({
       url: `${SITE_URL}/products/${slug}`,
       siteName: "سنيوريتا",
       images: product.images.map((img) => ({
-        url: formatFullMediaURL(img.url),
+        url: img.url,
         width: 1200,
         height: 1200,
         alt: product.name,
@@ -76,7 +76,7 @@ export async function SuspendedPage({ params }: PageProps<"/products/[slug]">) {
 
   const discount = product.originalPrice
     ? Math.round(
-        ((product.originalPrice - product.price) / product.originalPrice) * 100
+        ((product.originalPrice - product.price) / product.originalPrice) * 100,
       )
     : 0;
 
@@ -99,7 +99,7 @@ export async function SuspendedPage({ params }: PageProps<"/products/[slug]">) {
           description: product.description,
           price: product.price,
           originalPrice: product.originalPrice,
-          image: formatFullMediaURL(product.images[0].url) || "",
+          image: product.images[0].url || "",
           rating: product.rating,
           reviewCount: product.reviewCount,
           category: product?.category.name || "",

@@ -7,7 +7,7 @@ import {
   TableHeader,
   TableRow,
 } from "../ui/table";
-import { formatFullMediaURL } from "@/lib/formatters";
+import {} from "@/lib/formatters";
 import { Button } from "../ui/button";
 import { Eye, EyeOff, Pencil, Trash2 } from "lucide-react";
 import {
@@ -93,7 +93,7 @@ export function ProductsTable({ search }: ProductsTableProps) {
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-lg overflow-hidden bg-cream">
                       <Image
-                        src={formatFullMediaURL(product.images[0].url)}
+                        src={product.images[0].url}
                         alt={product.name}
                         width={60}
                         height={60}
@@ -140,7 +140,7 @@ export function ProductsTable({ search }: ProductsTableProps) {
                       onClick={() => {
                         handleToggleAvailability(
                           product.documentId,
-                          product.available
+                          product.available,
                         );
                       }}
                       title={product.available ? "إخفاء" : "إظهار"}

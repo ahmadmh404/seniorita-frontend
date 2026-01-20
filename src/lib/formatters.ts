@@ -6,7 +6,7 @@ import { PRODUCTS_SORTING_OPTION } from "./constant";
 import { Description } from "./types";
 
 export function formatProductSortOption(
-  option: (typeof PRODUCTS_SORTING_OPTION)[number]
+  option: (typeof PRODUCTS_SORTING_OPTION)[number],
 ) {
   switch (option) {
     case "rating":
@@ -51,7 +51,3 @@ export function productImageURLFormatter(url: string) {
 /**
  * Format Media URL
  */
-
-export function formatFullMediaURL(url: string) {
-  return `http://localhost:1337${url}`;
-}

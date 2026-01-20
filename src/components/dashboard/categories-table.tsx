@@ -23,7 +23,7 @@ import {
 } from "../ui/alert-dialog";
 
 import { Pencil, Trash2 } from "lucide-react";
-import { formatFullMediaURL } from "@/lib/formatters";
+import {} from "@/lib/formatters";
 import { CategoryDialog } from "./category-dialog";
 import { useTransition } from "react";
 import { deleteCategory } from "@/lib/api";
@@ -75,7 +75,7 @@ export function CategoriesTable({ search }: CategoriesTablePros) {
                   <div className="flex items-center gap-3">
                     <div className="w-12 h-12 rounded-lg overflow-hidden bg-cream">
                       <Image
-                        src={formatFullMediaURL(category.image.url)}
+                        src={category.image.url}
                         alt={category.name}
                         width={60}
                         height={60}

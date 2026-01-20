@@ -26,7 +26,7 @@ export function SlidesCarousel({ slides }: SliderCarouselProps) {
         set((prev) => (prev + 1) % slides.length);
       }, 5000);
       return () => clearInterval(timer);
-    }
+    },
   );
 
   useEffect(() => {

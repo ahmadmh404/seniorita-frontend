@@ -12,7 +12,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { StructuredData } from "@/components/seo/structured-data";
 import { getWebPageSchema, getBreadcrumbSchema } from "@/lib/seo-config";
 import {
-  formatFullMediaURL,
+  ,
   productDescriptionRenderer,
 } from "@/lib/formatters";
 import { PageFallback } from "@/components/shared/page-fallback";
@@ -42,7 +42,7 @@ export async function generateMetadata({
       images: category.image
         ? [
             {
-              url: formatFullMediaURL(category.image.url),
+              url: (category.image.url),
               width: 1200,
               height: 630,
               alt: category.name,
@@ -108,7 +108,7 @@ export async function SuspendedPage({
       {/* Category Hero */}
       <div className="relative h-64 md:h-80 overflow-hidden">
         <Image
-          src={formatFullMediaURL(category.image.url)}
+          src={(category.image.url)}
           alt={category.name}
           fill
           className="object-contain"

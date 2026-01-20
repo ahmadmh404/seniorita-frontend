@@ -1,13 +1,36 @@
 import { getCategories } from "@/lib/api";
 import {
-  formatFullMediaURL,
+  ,
   productDescriptionRenderer,
 } from "@/lib/formatters";
 import Link from "next/link";
 import Image from "next/image";
+import {
+  Empty,
+  EmptyDescription,
+  EmptyHeader,
+  EmptyMedia,
+  EmptyTitle,
+} from "../ui/empty";
+import { BlocksIcon } from "lucide-react";
 
 export async function CategoriesSection() {
   const { data: categories } = await getCategories();
+
+  if (categories.length === 0) {
+    return (
+      <Empty>
+        <EmptyHeader>
+          <EmptyMedia variant={"icon"}>
+            <BlocksIcon className="size-16 text-primary mb-2" />
+          </EmptyMedia>
+
+          <EmptyTitle>لا يوجد أقسام في الوقت الحالي </EmptyTitle>
+          <EmptyDescription />
+        </EmptyHeader>
+      </Empty>
+    );
+  }
 
   return (
     <section className="py-20 bg-cream">
@@ -26,7 +49,7 @@ export async function CategoriesSection() {
               `}
             >
               <Image
-                src={formatFullMediaURL(category.image.url)}
+                src={(category.image.url)}
                 alt={category.name}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"

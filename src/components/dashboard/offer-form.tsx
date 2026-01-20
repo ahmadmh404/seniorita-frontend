@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Controller, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { OfferSchema } from "@/lib/schema";
-import { formatFullMediaURL } from "@/lib/formatters";
+import {} from "@/lib/formatters";
 import { Form } from "../ui/form";
 import { Field, FieldLabel } from "../ui/field";
 import { Label } from "../ui/label";
@@ -93,7 +93,7 @@ export function OfferForm({ offer }: OfferFormProps) {
     };
 
     if (offer?.image) {
-      fetchImages(formatFullMediaURL(offer.image.url));
+      fetchImages(offer.image.url);
     }
 
     return () => {

@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Star } from "lucide-react";
 import type { Product } from "@/lib/types";
 import { Button } from "@/components/ui/button";
-import { formatFullMediaURL } from "@/lib/formatters";
+import {} from "@/lib/formatters";
 
 interface ProductCardProps {
   product: Product;
@@ -12,7 +12,7 @@ interface ProductCardProps {
 export function ProductCard({ product }: ProductCardProps) {
   const discount = product.originalPrice
     ? Math.round(
-        ((product.originalPrice - product.price) / product.originalPrice) * 100
+        ((product.originalPrice - product.price) / product.originalPrice) * 100,
       )
     : 0;
 
@@ -21,7 +21,7 @@ export function ProductCard({ product }: ProductCardProps) {
       <Link href={`/products/${product.slug}`}>
         <div className="relative aspect-square overflow-hidden bg-cream">
           <Image
-            src={formatFullMediaURL(product.images.at(0)?.url ?? "")}
+            src={product.images.at(0)?.url ?? ""}
             alt={product.name}
             fill
             className="object-cover h-full w-full transition-transform duration-500 group-hover:scale-110"

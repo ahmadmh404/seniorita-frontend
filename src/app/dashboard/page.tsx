@@ -3,7 +3,7 @@ import { DashboardStatsFallback } from "@/components/dashboard/fallbacks";
 import { PageFallback } from "@/components/shared/page-fallback";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getProducts } from "@/lib/api";
-import { formatFullMediaURL } from "@/lib/formatters";
+import {} from "@/lib/formatters";
 import Image from "next/image";
 import { Suspense } from "react";
 
@@ -41,7 +41,7 @@ async function SuspendedPage() {
               >
                 <div className="relative w-16 h-16 rounded-lg overflow-hidden bg-white">
                   <Image
-                    src={formatFullMediaURL(product.images[0].url)}
+                    src={product.images[0].url}
                     alt={product.name}
                     fill
                     className="w-full h-full object-cover"

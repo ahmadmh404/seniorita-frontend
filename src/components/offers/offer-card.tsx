@@ -9,7 +9,7 @@ import {
 import { Offer } from "@/lib/types";
 import { Badge } from "../ui/badge";
 import { Calendar } from "lucide-react";
-import { formatFullMediaURL } from "@/lib/formatters";
+import {} from "@/lib/formatters";
 
 interface OfferCardProps {
   offer: Offer;
@@ -34,7 +34,7 @@ export function OfferCard({ offer, index }: OfferCardProps) {
       {offer.image && (
         <div className="relative h-48 w-full">
           <Image
-            src={formatFullMediaURL(offer.image.url)}
+            src={offer.image.url}
             alt={offer.image.name}
             fill
             className="object-cover"
