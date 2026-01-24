@@ -27,7 +27,7 @@ export async function Header() {
                 <span className="sr-only">القائمة</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-80">
+            <SheetContent side="right" className="w-80 py-6 px-8">
               <div className="flex flex-col gap-6 mt-8">
                 {navLinks.map((link) => (
                   <SheetClose asChild key={link.href}>
@@ -41,7 +41,7 @@ export async function Header() {
                 ))}
 
                 <div className="border-t pt-4">
-                  <p className="text-sm text-muted mb-3">الأقسام</p>
+                  <p className="text-sm mb-3">الأقسام</p>
                   {categories?.map((cat) => (
                     <SheetClose asChild key={cat.id}>
                       <Link

@@ -74,7 +74,7 @@ export function InfiniteQueryWrapper<T, N extends string>({
       .at((data.pages.flatMap((page) => page.pagination) || []).length - 1) ??
     null;
 
-  if (status === "pending" || isLoading || isPending) {
+  if (status === "pending") {
     return (
       <div className="flex flex-col items-center my-10 space-y-2">
         <Loader2 className="animate-spin size-5" />

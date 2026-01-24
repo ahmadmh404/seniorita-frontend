@@ -24,7 +24,7 @@ export async function Footer() {
               className="inline-block transition-transform hover:scale-105"
             >
               <Image
-                src="/images/image.png"
+                src="/images/logo.png"
                 alt="سنيوريتا"
                 width={140}
                 height={60}

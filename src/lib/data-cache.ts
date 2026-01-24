@@ -12,10 +12,10 @@ import { FeatureType } from "./types";
 export const getPaginatedFeature = (
   feature: FeatureType,
   cursor?: number,
-  filters?: string
+  filters?: string,
 ) => {
   return `paginated:${feature}:${cursor == null ? "beginning" : cursor}:${
-    filters ?? "no-filters"
+    filters ? filters : "no-filters"
   }`;
 };
 
@@ -51,7 +51,7 @@ export const getFeaturedProductsTag = () => {
 
 export const getSimilarProductsTag = (
   productId: string,
-  categoryId: string
+  categoryId: string,
 ) => {
   return `products:similar:${productId}:${categoryId}`;
 };
