@@ -5,7 +5,7 @@ import { Suspense } from "react";
 import { PageFallback } from "@/components/shared/page-fallback";
 import { CategoriesGrid } from "@/components/home/categories-grid";
 
-const SITE_URL = process.env.SITE_URL || "https://senorita.com";
+const SITE_URL = process.env.SITE_URL;
 
 export const metadata: Metadata = {
   title: "الأقسام",
@@ -28,7 +28,7 @@ export async function SuspendedPage() {
         data={getWebPageSchema(
           "الأقسام | سنيوريتا",
           metadata.description!,
-          `${SITE_URL}/categories`
+          `${SITE_URL}/categories`,
         )}
       />
       <div className="text-center mb-12">

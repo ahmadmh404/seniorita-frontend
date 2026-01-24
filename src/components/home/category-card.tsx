@@ -25,7 +25,7 @@ export function CategoryCArd({ category }: CategoryCardProps) {
         <h2 className="text-3xl font-bold text-background mb-2">
           {category.name}
         </h2>
-        <p className="text-foreground/80 mb-4">
+        <p className="text-background/80 mb-4">
           {productDescriptionRenderer(category.description)}
         </p>
         <span className="text-foreground/60">

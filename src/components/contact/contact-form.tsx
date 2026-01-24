@@ -250,13 +250,13 @@ const contactInfo = [
   {
     icon: Mail,
     title: "البريد الإلكتروني",
-    value: "info@senorita.com",
-    href: "mailto:info@senorita.com",
+    value: "sirajshaddoud@gmail.com",
+    href: "mailto:sirajshaddoud@gmail.com",
   },
   {
     icon: MapPin,
     title: "العنوان",
-    value: "الرياض، المملكة العربية السعودية",
+    value: "طرطوس - سوريا",
     href: "#",
   },
   {
