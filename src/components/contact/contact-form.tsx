@@ -37,7 +37,6 @@ export function ContactForm() {
 
   async function onSubmit(data: z.infer<typeof ContactSchema>) {
     startTransition(async () => {
-      console.log("daa: ", data);
       // const response = await emailJs.send(data);
     });
   }
@@ -87,7 +86,7 @@ export function ContactForm() {
                       {social.charAt(0)}
                     </span>
                   </a>
-                )
+                ),
               )}
             </div>
           </div>

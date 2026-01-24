@@ -8,8 +8,8 @@ const nextConfig: NextConfig = {
     dangerouslyAllowLocalIP: true,
     remotePatterns: [
       {
-        protocol: "http",
-        hostname: "legendary-nurture-5fa7e4a07f.media",
+        protocol: "https",
+        hostname: "legendary-nurture-5fa7e4a07f.media.strapiapp.com",
       },
     ],
   },

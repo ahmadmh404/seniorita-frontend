@@ -20,9 +20,7 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 
 export async function generateStaticParams() {
   try {
-    console.log("started fetching categories");
     const { categories } = await getCategories();
-    console.log("categories: ", categories);
     return categories.map((category) => ({
       slug: category.slug,
     }));

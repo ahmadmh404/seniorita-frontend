@@ -100,8 +100,6 @@ export function InfiniteQueryWrapper<T, N extends string>({
     return <NoData />;
   }
 
-  console.log("resources: ", resources);
-
   return (
     <div className="space-y-7">
       <div className={className}>
