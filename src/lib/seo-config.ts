@@ -33,6 +33,18 @@ export const DEFAULT_METADATA: Metadata = {
   authors: [{ name: "Senorita Gallery", url: SITE_URL }],
   creator: "Senorita Gallery",
   publisher: "Senorita Gallery",
+  icons: {
+    icon: [
+      {
+        url: "/icon-light-32x32.png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/icon-dark-32x32.png",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+  },
   formatDetection: {
     email: false,
     address: false,
@@ -92,7 +104,7 @@ export function getOpenGraphImage(
   url: string,
   alt: string,
   width = 1200,
-  height = 630
+  height = 630,
 ) {
   return {
     url,
@@ -229,7 +241,7 @@ export function getProductSchema(product: {
  * Generate structured data for BreadcrumbList
  */
 export function getBreadcrumbSchema(
-  items: Array<{ name: string; url: string }>
+  items: Array<{ name: string; url: string }>,
 ) {
   return {
     "@context": "https://schema.org",
@@ -249,7 +261,7 @@ export function getBreadcrumbSchema(
 export function getWebPageSchema(
   title: string,
   description: string,
-  url: string
+  url: string,
 ) {
   return {
     "@context": "https://schema.org",
@@ -268,7 +280,7 @@ export function getWebPageSchema(
  * Generate structured data for FAQPage
  */
 export function getFAQSchema(
-  faqs: Array<{ question: string; answer: string }>
+  faqs: Array<{ question: string; answer: string }>,
 ) {
   return {
     "@context": "https://schema.org",

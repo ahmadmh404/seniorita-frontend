@@ -88,7 +88,7 @@ export async function getFeaturedProducts() {
 
   const featuredProducts = await products.find({
     filters: { featured: true },
-    populate: ["images", "category"],
+    populate: "*",
   });
   return {
     data: featuredProducts.data as Product[],

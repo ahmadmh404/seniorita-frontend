@@ -143,8 +143,6 @@ export interface Product extends API.Document {
   images: Image[];
   category: Category;
   colors?: Color[];
-  // sizes?: Record<string, string>;
-  // materials?: Record<string, string>;
   rating: number;
   reviewCount: number;
   available: boolean;
@@ -161,7 +159,6 @@ export interface Category extends API.Document {
   image: Image;
   products: Product[];
   sub_categories: Category[];
-  // filters?: CategoryFilter[];
 }
 
 export interface Offer extends API.Document {

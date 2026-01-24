@@ -2,32 +2,11 @@ import { getCategories } from "@/lib/api";
 import { productDescriptionRenderer } from "@/lib/formatters";
 import Link from "next/link";
 import Image from "next/image";
-import {
-  Empty,
-  EmptyDescription,
-  EmptyHeader,
-  EmptyMedia,
-  EmptyTitle,
-} from "../ui/empty";
-import { BlocksIcon } from "lucide-react";
 
 export async function CategoriesSection() {
   const { data: categories } = await getCategories();
 
-  if (categories.length === 0) {
-    return (
-      <Empty>
-        <EmptyHeader>
-          <EmptyMedia variant={"icon"}>
-            <BlocksIcon className="size-16 text-primary mb-2" />
-          </EmptyMedia>
-
-          <EmptyTitle>لا يوجد أقسام في الوقت الحالي </EmptyTitle>
-          <EmptyDescription />
-        </EmptyHeader>
-      </Empty>
-    );
-  }
+  if (categories.length === 0) return null;
 
   return (
     <section className="py-20 bg-cream">
@@ -35,7 +14,7 @@ export async function CategoriesSection() {
         <h2 className="section-title mb-10">مجموعاتنا المميزة</h2>
 
         {/* Bento Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 h-[800px] md:h-[600px]">
+        <div className="w-full grid grid-cols-1 md:grid-cols-4 gap-4 h-[800px] md:h-[600px]">
           {categories.slice(0, 4).map((category, index) => (
             <Link
               key={category.documentId}

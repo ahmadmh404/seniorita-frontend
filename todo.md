@@ -55,3 +55,5 @@
 - add stats and features to about us page. ✅
 - email sending mechanism. ✅
 - Get the email of the business owner to receiver an email.
+
+- connect each product to it's category.

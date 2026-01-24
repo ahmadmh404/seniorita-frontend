@@ -4,7 +4,7 @@ import { Suspense } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
-import { getCategories, getCategory } from "@/lib/api";
+import { getCategory } from "@/lib/api";
 import { ProductFilters } from "@/components/products/product-filters";
 import { ProductGrid } from "@/components/products/product-grid";
 import { ProductSort } from "@/components/products/product-sort";
@@ -13,12 +13,16 @@ import { StructuredData } from "@/components/seo/structured-data";
 import { getWebPageSchema, getBreadcrumbSchema } from "@/lib/seo-config";
 import { productDescriptionRenderer } from "@/lib/formatters";
 import { PageFallback } from "@/components/shared/page-fallback";
+import { client } from "@/lib/api/client";
+import { Category } from "@/lib/types";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL!;
 
 export async function generateStaticParams() {
   try {
-    const { data: categories } = await getCategories();
+    console.log("started fetching categories");
+    const { categories } = await getCategories();
+    console.log("categories: ", categories);
     return categories.map((category) => ({
       slug: category.slug,
     }));
@@ -194,4 +198,14 @@ function ProductGridFallback() {
       ))}
     </div>
   );
+}
+
+async function getCategories() {
+  const allCategories = await client.collection("categories").find({
+    populate: "*",
+  });
+
+  console.log("allCategories: ", allCategories);
+
+  return { categories: allCategories.data as Category[] };
 }
