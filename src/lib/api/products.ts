@@ -10,7 +10,6 @@ import {
 import { client } from "./client";
 import {
   getFeaturedProductsTag,
-  getPaginatedFeature,
   getProductsStatsTag,
   getProductTag,
   getSimilarProductsTag,
@@ -29,22 +28,18 @@ const products = client.collection("products");
  */
 interface GetProductsType {
   start?: number;
-  page?: number;
   options?: FilerProductsFiltersType;
 }
 
 /**
  * Get All Products With Filtering
  */
-export async function getProducts({ start, page, options }: GetProductsType) {
-  "use cache";
-  cacheTag(getPaginatedFeature("products", page, JSON.stringify(options)));
-
+export async function getProducts({ start, options }: GetProductsType) {
   // fetch the products
   const allProducts = await products.find({
     status: "published",
     populate: "*",
-    filters: options?.filters,
+    filters: { available: true, ...options?.filters },
     sort: options?.sort,
     pagination: {
       start,

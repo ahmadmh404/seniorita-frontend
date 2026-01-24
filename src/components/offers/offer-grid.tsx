@@ -7,8 +7,9 @@ import { OfferCard } from "./offer-card";
 export function OffersGrid() {
   return (
     <InfiniteQueryWrapper
-      queryFn={({ start, page }) => getOffers(start, page)}
-      queryKey="offer"
+      queryFn={({ start }) => getOffers(start)}
+      queryKey="offers"
+      resourceName="offer"
       ItemRenderer={({ index, offer }) => (
         <OfferCard offer={offer} index={index} />
       )}

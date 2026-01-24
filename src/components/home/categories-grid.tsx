@@ -7,8 +7,9 @@ import { CategoryCArd } from "./category-card";
 export function CategoriesGrid() {
   return (
     <InfiniteQueryWrapper
-      queryFn={({ start, page }) => getCategories(start, page)}
-      queryKey="category"
+      queryFn={({ start }) => getCategories(start)}
+      queryKey={`categories`}
+      resourceName="category"
       ItemRenderer={({ category }) => <CategoryCArd category={category} />}
       className="grid grid-cols-1 md:grid-cols-2 gap-8"
     />

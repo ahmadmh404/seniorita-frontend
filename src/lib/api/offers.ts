@@ -2,11 +2,7 @@
 
 import { cacheTag } from "next/cache";
 import { client } from "./client";
-import {
-  getOfferCacheTag,
-  getOfferTitleCacheTag,
-  getPaginatedFeature,
-} from "../data-cache";
+import { getOfferCacheTag, getOfferTitleCacheTag } from "../data-cache";
 import { DataPage, Offer } from "../types";
 
 const offers = client.collection("offers");
@@ -16,13 +12,7 @@ const offers = client.collection("offers");
  * @param start
  * @returns offers with pagination
  */
-export async function getOffers(
-  start?: number,
-  page?: number
-): Promise<DataPage<Offer>> {
-  "use cache";
-  cacheTag(getPaginatedFeature("offers", page));
-
+export async function getOffers(start?: number): Promise<DataPage<Offer>> {
   const response = await offers.find({
     sort: "createdAt:desc",
     populate: "image",

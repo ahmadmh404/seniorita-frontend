@@ -19,10 +19,7 @@ const categories = client.collection("categories");
  * @param None
  * @returns categories and pagination on success, error on failure
  */
-export async function getCategories(start?: number, page?: number) {
-  "use cache";
-  cacheTag(getPaginatedFeature("categories", page));
-
+export async function getCategories(start?: number) {
   const allCategories = await categories.find({
     filters: { isSubCategory: false },
     populate: "*",

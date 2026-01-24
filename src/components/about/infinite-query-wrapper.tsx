@@ -20,13 +20,9 @@ type TData<T> = DataPage<T>;
 type ItemRendererProps<T, N extends string> = { [K in N]: T };
 
 interface ListRendererProps<T, N extends string> {
-  queryFn: ({
-    start,
-  }: {
-    start: PaginationProp;
-    page: PaginationProp;
-  }) => Promise<TData<T>>;
-  queryKey: N;
+  queryFn: ({ start }: { start: PaginationProp }) => Promise<TData<T>>;
+  queryKey: string;
+  resourceName: N;
   ItemRenderer: ComponentType<ItemRendererProps<T, N> & { index: number }>;
   className?: string;
 }
@@ -34,20 +30,18 @@ interface ListRendererProps<T, N extends string> {
 export function InfiniteQueryWrapper<T, N extends string>({
   queryFn,
   queryKey,
+  resourceName,
   ItemRenderer,
   className = "",
 }: ListRendererProps<T, N>) {
-  const searchParams = useSearchParams();
-  const page = searchParams.get("page");
-
-  const { data, status, refetch, isLoading, isPending } = useInfiniteQuery({
+  const { data, status, refetch } = useInfiniteQuery({
     queryFn: ({ pageParam }) =>
       queryFn({
         start: pageParam ?? 0,
-        page: Number(page) ?? 1,
       }),
     queryKey: [`$${queryKey}s`],
     initialPageParam: undefined as number | undefined,
+    staleTime: Infinity,
     getNextPageParam: ({ pagination, data }) => {
       const count = data.length ?? 0;
       const pageSize = pagination?.limit;
@@ -106,7 +100,7 @@ export function InfiniteQueryWrapper<T, N extends string>({
         {resources.map((item, i) => (
           <Fragment key={i}>
             <ItemRenderer
-              {...({ [queryKey]: item } as ItemRendererProps<T, N>)}
+              {...({ [resourceName]: item } as ItemRendererProps<T, N>)}
               {...{ index: i }}
             />
           </Fragment>

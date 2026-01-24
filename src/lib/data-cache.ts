@@ -14,7 +14,7 @@ export const getPaginatedFeature = (
   cursor?: number,
   filters?: string,
 ) => {
-  return `paginated:${feature}:${cursor == null ? "beginning" : cursor}:${
+  return `paginated:${feature}:${cursor ? cursor : "beginning"}:${
     filters ? filters : "no-filters"
   }`;
 };

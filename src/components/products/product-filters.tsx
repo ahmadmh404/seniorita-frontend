@@ -96,7 +96,7 @@ export function ProductFilters({ categories }: ProductFiltersProps) {
         colors: colors,
         category,
       });
-    }
+    },
   );
 
   /**
