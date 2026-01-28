@@ -73,8 +73,6 @@ export const footerLinks = {
   support: [
     { href: "/about", label: "من نحن" },
     { href: "/contact", label: "اتصل بنا" },
-    { href: "/privacy", label: "سياسة الخصوصية" },
-    { href: "/terms", label: "الشروط والأحكام" },
   ],
 } as const;
 

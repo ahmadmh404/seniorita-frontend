@@ -131,6 +131,7 @@ export function ProductFilters({ categories }: ProductFiltersProps) {
 
     startTransition(() => {
       router.push(`${pathname}?${params.toString()}`);
+      router.refresh();
     });
   }
 
