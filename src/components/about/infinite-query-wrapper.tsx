@@ -41,6 +41,7 @@ export function InfiniteQueryWrapper<T, N extends string>({
       }),
     queryKey: [`$${queryKey}s`],
     initialPageParam: undefined as number | undefined,
+    staleTime: Infinity,
     getNextPageParam: ({ pagination, data }) => {
       const count = data.length ?? 0;
       const pageSize = pagination?.limit;
