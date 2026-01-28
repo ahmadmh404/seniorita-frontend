@@ -29,7 +29,7 @@ export function ProductGrid({ category }: ProductGridProps) {
     (search: ReadonlyURLSearchParams) => {
       function handleFilter() {
         const params: z.infer<typeof ProductsFiltersInputSchema> = {
-          category: category?.slug ?? search.get("category"),
+          category: category ? category?.slug : search.get("category") || null,
           search: search.get("search"),
           colors: search.get("colors"),
           minPrice: Number(search.get("minPrice")) || 0,
@@ -41,7 +41,7 @@ export function ProductGrid({ category }: ProductGridProps) {
         if (params.category != null) {
           setOptions((prev) => ({
             ...prev,
-            filters: { category: { slug: params.category! } },
+            filters: { ...prev.filters, category: { slug: params.category! } },
           }));
         }
 
@@ -50,6 +50,7 @@ export function ProductGrid({ category }: ProductGridProps) {
           setOptions((prev) => ({
             ...prev,
             filters: {
+              ...prev.filters,
               $or: [
                 { name: { $contains: params.search!, $options: "i" } },
                 { description: { $contains: params.search!, $options: "i" } },
@@ -66,7 +67,7 @@ export function ProductGrid({ category }: ProductGridProps) {
               : params.colors;
           setOptions((prev) => ({
             ...prev,
-            filters: { colors: { color: { $in: colorsArr } } },
+            filters: { ...prev.filters, colors: { color: { $in: colorsArr } } },
           }));
         }
 
@@ -75,6 +76,7 @@ export function ProductGrid({ category }: ProductGridProps) {
           setOptions((prev) => ({
             ...prev,
             filters: {
+              ...prev.filters,
               price: {
                 $gte: params.minPrice ?? 0,
                 $lte: params.maxPrice ?? 20,
