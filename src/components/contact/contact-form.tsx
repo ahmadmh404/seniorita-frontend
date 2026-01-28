@@ -256,7 +256,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "العنوان",
-    value: "طرطوس - سوريا",
+    value: "طرطوس | شارع الزهور | مقابل آفاق | بجانب ماي دريم",
     href: "#",
   },
   {
