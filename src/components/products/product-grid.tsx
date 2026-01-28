@@ -33,7 +33,7 @@ export function ProductGrid({ category }: ProductGridProps) {
           search: search.get("search"),
           colors: search.get("colors"),
           minPrice: Number(search.get("minPrice")) || 0,
-          maxPrice: Number(search.get("maxPrice")) || 500,
+          maxPrice: Number(search.get("maxPrice")) || 20,
           sort: (search.get("sort") || "newest") as ProductSortOption,
         };
 
@@ -77,7 +77,7 @@ export function ProductGrid({ category }: ProductGridProps) {
             filters: {
               price: {
                 $gte: params.minPrice ?? 0,
-                $lte: params.maxPrice ?? 500,
+                $lte: params.maxPrice ?? 20,
               },
             },
           }));

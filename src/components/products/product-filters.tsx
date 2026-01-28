@@ -89,7 +89,7 @@ export function ProductFilters({ categories }: ProductFiltersProps) {
     (searchParams: ReadonlyURLSearchParams) => {
       const colors = searchParams.get("colors")?.split(",") || [];
       const minPrice = Number(searchParams.get("minPrice")) || 0;
-      const maxPrice = Number(searchParams.get("maxPrice")) || 500;
+      const maxPrice = Number(searchParams.get("maxPrice")) || 20;
       const category = searchParams.get("category") || "";
       handleChangeFilters({
         price: [minPrice, maxPrice],
@@ -117,7 +117,7 @@ export function ProductFilters({ categories }: ProductFiltersProps) {
       params.delete("minPrice");
     }
 
-    if (filters.price[1] < 500) {
+    if (filters.price[1] < 20) {
       params.set("maxPrice", String(filters.price[1]));
     } else {
       params.delete("maxPrice");
@@ -211,8 +211,8 @@ export function ProductFilters({ categories }: ProductFiltersProps) {
                   handleChangeFilters({ price: price as [number, number] })
                 }
                 min={0}
-                max={500}
-                step={10}
+                max={20}
+                step={0.2}
                 className="mb-4"
               />
               <div className="flex items-center justify-between text-sm">
